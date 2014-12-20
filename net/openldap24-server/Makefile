@@ -660,7 +660,7 @@ post-build:
 .if ${PORT_OPTIONS:MSMBPWD}
 	@(cd ${BUILD_WRKSRC}/contrib/slapd-modules/smbk5pwd && \
 		${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_FLAGS} ${MAKEFILE} \
-		${MAKE_ARGS} DEFS="-DDO_SAMBA" prefix="${PREFIX}" all)
+		${MAKE_ARGS} DEFS="-DDO_KRB5 -DDO_SAMBA" prefix="${PREFIX}" all)
 .endif
 .if ${PORT_OPTIONS:MSHA2}
 	@(cd ${BUILD_WRKSRC}/contrib/slapd-modules/passwd/sha2 && \
