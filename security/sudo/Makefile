@@ -70,6 +70,11 @@ LDAP_CONFIGURE_ON=	--with-ldap=${PREFIX}
 SUDO_LDAP_CONF?=	ldap.conf
 LDAP_CONFIGURE_ON+=	--with-ldap-conf-file=${PREFIX}/etc/${SUDO_LDAP_CONF}
 
+.include <bsd.port.options.mk>
+.if ${PORT_OPTIONS:MLDAP}
+WANT_OPENLDAP_SASL=	yes
+.endif
+
 DISABLE_ROOT_SUDO_CONFIGURE_ON=	--disable-root-sudo
 DISABLE_AUTH_CONFIGURE_ON=	--disable-authentication
 NOARGS_SHELL_CONFIGURE_ENABLE=	noargs-shell
