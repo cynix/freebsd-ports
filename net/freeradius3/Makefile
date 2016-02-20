@@ -86,6 +86,7 @@ LDAP_CONFIGURE_WITH=		rlm_ldap
 LDAP_LIB_DEPENDS=		libsasl2.so:security/cyrus-sasl2
 LDAP_USE=			OPENLDAP
 LDAP_VARS=			_REQUIRE+=slapd
+WANT_OPENLDAP_SASL=		YES
 MITKRB_PORT_CONFIGURE_ON=	--with-rlm-krb5-dir=${LOCALBASE}
 MITKRB_PORT_LIB_DEPENDS=	libkrb5support.so:security/krb5
 MITKRB_CONFLICTS_BUILD=		heimdal-[0-9].*
