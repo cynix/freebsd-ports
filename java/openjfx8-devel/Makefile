@@ -20,6 +20,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 BUILD_DEPENDS=	apache-ant>0:devel/apache-ant \
 		antlr3>0:devel/antlr3 \
 		gradle:devel/gradle \
+		pkg-config:devel/pkgconf \
 		swt-devel>0:x11-toolkits/swt-devel
 RUN_DEPENDS=	swt-devel>0:x11-toolkits/swt-devel
 LIB_DEPENDS=	libjpeg.so:graphics/jpeg-turbo
