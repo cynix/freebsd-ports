@@ -27,6 +27,7 @@ LIB_DEPENDS=	libjpeg.so:graphics/jpeg-turbo
 
 USE_GL=		yes
 USE_GNOME=	gtk20
+USE_QT5=	core gui network webkit qmake_build
 USE_JAVA=	yes
 USE_LDCONFIG=	yes
 JAVA_VERSION=	1.8
