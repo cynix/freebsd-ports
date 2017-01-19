@@ -29,8 +29,8 @@ CPE_VENDOR=	ubnt
 CPE_PRODUCT=	unifi_controller
 USE_JAVA=	yes
 JAVA_VERSION=	1.8
-JAVA_OS=	native
-JAVA_VENDOR=	openjdk bsdjava
+JAVA_OS=	linux
+JAVA_VENDOR=	oracle
 JAVA_RUN=	yes
 
 NO_BUILD=	yes

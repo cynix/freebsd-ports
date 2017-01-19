@@ -49,7 +49,7 @@
 %%JAVASHAREDIR%%/unifi/lib/log4j-1.2.17.jar
 %%JAVASHAREDIR%%/unifi/lib/mail-1.4.7.jar
 %%JAVASHAREDIR%%/unifi/lib/mongo-java-driver-2.14.3.jar
-@comment %%JAVASHAREDIR%%/unifi/lib/native/Linux/amd64/libubnt_webrtc_jni.so
+%%JAVASHAREDIR%%/unifi/lib/native/Linux/amd64/libubnt_webrtc_jni.so
 @comment %%JAVASHAREDIR%%/unifi/lib/native/Linux/armhf/libubnt_webrtc_jni.so
 @comment %%JAVASHAREDIR%%/unifi/lib/native/Mac/x86_64/libubnt_webrtc_jni.jnilib
 @comment %%JAVASHAREDIR%%/unifi/lib/native/Windows/amd64/ubnt_webrtc_jni.dll
