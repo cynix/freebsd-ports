@@ -794,6 +794,12 @@ GH_ACCOUNT+=	anthonyryan1:mod_zip
 GH_PROJECT+=	mod_zip:mod_zip
 GH_TAGNAME+=	${NGINX_ZIP_VERSION}:mod_zip
 CONFIGURE_ARGS+=--add-module=${WRKDIR}/mod_zip-${NGINX_ZIP_VERSION}
+EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-ngx_http_zip_module.c
+
+SLICE_VERSION=	c41d326
+MASTER_SITES+=	https://github.com/alibaba/nginx-http-slice/tarball/master/:slice
+DISTFILES+=	alibaba-nginx-http-slice-${SLICE_VERSION}.tar.gz:slice
+CONFIGURE_ARGS+=--add-module=${WRKDIR}/alibaba-nginx-http-slice-${SLICE_VERSION}
 .endif
 
 .if ${PORT_OPTIONS:MDRIZZLE}
