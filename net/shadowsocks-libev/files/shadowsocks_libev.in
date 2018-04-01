@@ -24,7 +24,7 @@ load_rc_config $name
 : ${shadowsocks_libev_config="%%PREFIX%%/etc/shadowsocks-libev/config.json"}
 
 command="%%PREFIX%%/bin/ss-server" 
-pidfile="/var/run/shadowsocks-libev.pid"
+pidfile="/tmp/shadowsocks-libev.pid"
 required_files="${shadowsocks_libev_config}"
 
 command_args="-f $pidfile -c $shadowsocks_libev_config"
