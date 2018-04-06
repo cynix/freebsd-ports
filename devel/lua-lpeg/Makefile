@@ -13,7 +13,6 @@ COMMENT=	PEG-based pattern-matching library for Lua
 LICENSE=	MIT
 
 ALL_TARGET=	linux
-CFLAGS+=	-DLUA_32BITS
 MAKE_ARGS=	CC=${CC} LUADIR=${LUA_INCDIR}
 MAKEFILE=	${WRKSRC}/makefile
 USES?=		lua
