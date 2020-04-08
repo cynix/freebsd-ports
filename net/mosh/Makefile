@@ -2,8 +2,11 @@ PORTNAME=	mosh
 PORTVERSION=	1.3.2
 PORTREVISION=	20
 CATEGORIES=	net
-MASTER_SITES=	https://mosh.org/ \
-		ZI
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	mobile-shell
+GH_PROJECT=	mosh
+GH_TAGNAME=	a563093
 
 MAINTAINER=	zi@FreeBSD.org
 COMMENT=	Mobile terminal that supports intermittent connectivity
@@ -19,12 +22,15 @@ CONFIGURE_ARGS=	--with-utempter --without-ncurses
 CONFIGURE_ENV+=	CRYPTO_CFLAGS="-I${OPENSSLINC}" CRYPTO_LIBS="-L${OPENSSLLIB} -lssl -lcrypto" \
 		TINFO_CFLAGS="-I/usr/include"
 INSTALL_TARGET=	install-strip
-USES=		compiler:c++11-lang ncurses perl5 pkgconfig ssl
+USES=		autoreconf:build compiler:c++11-lang ncurses perl5 pkgconfig ssl
 USE_CXXSTD=	c++11
 
 CONFLICTS_INSTALL=	mosh-0.[2-9].*
 
 PLIST_FILES=	bin/mosh bin/mosh-server bin/mosh-client \
 		man/man1/mosh-client.1.gz man/man1/mosh-server.1.gz man/man1/mosh.1.gz
+
+pre-configure:
+	@(cd ${WRKSRC} && ${SH} autogen.sh)
 
 .include <bsd.port.mk>
