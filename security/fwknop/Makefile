@@ -1,10 +1,14 @@
 # Created by: Sean Greven <sean.greven@gmail.com>
 
 PORTNAME=	fwknop
-PORTVERSION=	2.6.10
-PORTREVISION=	2
+PORTVERSION=	2.6.11
+PORTREVISION=	1
 CATEGORIES=	security
-MASTER_SITES=	http://www.cipherdyne.org/fwknop/download/
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	mrash
+GH_PROJECT=	fwknop
+GH_TAGNAME=	cd72de9
 
 MAINTAINER=	sean.greven@gmail.com
 COMMENT=	SPA implementation for Linux and FreeBSD
@@ -15,7 +19,7 @@ BUILD_DEPENDS=	wget:ftp/wget
 RUN_DEPENDS=	wget:ftp/wget
 LIB_DEPENDS+=	libassuan.so:security/libassuan
 
-USES=		cpe libtool
+USES=		autoreconf:build makeinfo cpe libtool
 USE_LDCONFIG=	yes
 USE_RC_SUBR=	fwknopd
 
@@ -46,6 +50,9 @@ PF_CONFIGURE_WITH=	pf=/sbin/pfctl
 GPGME_LIB_DEPENDS=	libgpgme.so:security/gpgme
 GPGME_LIB_DEPENDS+=	libgpg-error.so:security/libgpg-error
 GPGME_CONFIGURE_WITH=	gpgme
+
+pre-configure:
+	@(cd ${WRKSRC} && ${SH} autogen.sh)
 
 post-install:
 	(cd ${STAGEDIR}${PREFIX}/etc/fwknop && ${MV} access.conf access.conf.sample)
