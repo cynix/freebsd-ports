@@ -40,7 +40,6 @@ PORTDATA=	runtime
 
 OPTIONS_DEFINE=	LUAJIT NLS PYNVIM
 OPTIONS_DEFAULT=LUAJIT
-OPTIONS_EXCLUDE_aarch64=	LUAJIT
 OPTIONS_EXCLUDE_mips64=		LUAJIT
 OPTIONS_EXCLUDE_riscv64=	LUAJIT
 OPTIONS_EXCLUDE_sparc64=	LUAJIT
@@ -60,7 +59,7 @@ PYNVIM_USES=		python:run
 
 .include <bsd.port.options.mk>
 
-.if ${ARCH:Mpowerpc64*}
+.if ${ARCH:Mpowerpc64*} || ${ARCH:Maarch64*}
 LUAJIT_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit-openresty
 .endif
 
